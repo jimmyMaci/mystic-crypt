@@ -42,6 +42,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import de.alpharogroup.BaseTestCase;
+import de.alpharogroup.math.MathExtensions;
 import de.alpharogroup.test.objects.Gender;
 
 /**
@@ -253,7 +254,8 @@ public class RandomExtensionsTest extends BaseTestCase
 		for (int i = 0; i < 100; i++)
 		{
 			final int randomInt = RandomExtensions.randomInt(5);
-			logger.debug(randomInt);
+			AssertJUnit.assertTrue("randomInt result is " + randomInt
+					+ " but should be between 0-4.", MathExtensions.isBetween(-1, 5, randomInt));
 		}
 	}
 
